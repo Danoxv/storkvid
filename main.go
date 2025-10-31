@@ -3,10 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/Danoxv/storkvid/processors"
 	"os/exec"
 	"path/filepath"
 	"strconv"
+
+	"github.com/Danoxv/storkvid/processors"
 )
 
 const (
@@ -30,7 +31,7 @@ func main() {
 	}
 	inputPath := args[0]
 
-	if processors.IsVideo(inputPath) != true {
+	if !processors.IsVideo(inputPath) {
 		fmt.Printf("%s 🗄️  Ожидаю видеофайл! %s\n\n", RED, RESET)
 		return
 	}

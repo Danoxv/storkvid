@@ -68,7 +68,6 @@ func Execute(command *exec.Cmd, inputFile string) int {
 
 	for {
 		line, err := reader.ReadString('\r')
-
 		if err != nil {
 			if err.Error() != "EOF" {
 				fmt.Printf("Ошибка чтения stderr: %v\n", err)
@@ -121,7 +120,7 @@ func timeToSeconds(time string) float64 {
 	return s
 }
 
-func progressBar(partTime float64, fullTime float64) {
+func progressBar(partTime, fullTime float64) {
 	lengthBar := 75
 	progress := partTime / fullTime
 	if progress >= 1 {
