@@ -77,7 +77,7 @@ func Execute(command *exec.Cmd, inputFile string) int {
 		}
 		timeToString := getTimeToString(line)
 		if timeToString == "" {
-			break
+			continue
 		}
 		timeToSeconds(timeToString)
 
