@@ -15,7 +15,7 @@
 brew install ffmpeg
 ```
 
-**Linux (Ubuntu / Debian):**
+**Linux (Ubuntu/Debian):**
 
 ```bash
 sudo apt update
