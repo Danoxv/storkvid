@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/Danoxv/storkvid/processors"
+	"github.com/Danoxv/storkvid/modules"
 )
 
 const (
@@ -31,7 +31,7 @@ func main() {
 	}
 	inputPath := args[0]
 
-	if !processors.IsVideo(inputPath) {
+	if !modules.IsVideo(inputPath) {
 		fmt.Printf("%s 🗄️  Ожидаю видеофайл! %s\n\n", RED, RESET)
 		return
 	}
@@ -57,5 +57,5 @@ func main() {
 
 	cmd := exec.Command("ffmpeg", arrayCommand...)
 
-	processors.Execute(cmd, inputPath)
+	modules.Execute(cmd, inputPath)
 }

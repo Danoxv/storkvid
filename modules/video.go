@@ -1,4 +1,4 @@
-package processors
+package modules
 
 import (
 	"bufio"
@@ -7,6 +7,13 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+)
+
+const (
+	RESET  = "\033[0m"
+	RED    = "\033[31m"
+	GREEN  = "\033[32m"
+	YELLOW = "\033[33m"
 )
 
 func IsVideo(filepath string) bool {
@@ -88,7 +95,7 @@ func Execute(command *exec.Cmd, inputFile string) int {
 	}
 	progressBar(duration, duration)
 
-	fmt.Printf("\n\nУспешно обработано!\n")
+	fmt.Printf("\n\n%s Успешно обработано!%s\n", GREEN, RESET)
 	return 0
 }
 
@@ -129,5 +136,5 @@ func progressBar(partTime, fullTime float64) {
 
 	filled := int(progress * float64(lengthBar))
 	bar := strings.Repeat("█", filled) + strings.Repeat("-", lengthBar-filled)
-	fmt.Printf("\r[%s] %.1f%%", bar, progress*100)
+	fmt.Printf("\r [%s] %.1f%%", bar, progress*100)
 }
